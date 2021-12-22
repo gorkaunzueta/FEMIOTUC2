@@ -144,7 +144,6 @@ lat,lon,timestamp,user_id
 ...
 ````
 
-
 El fitxer d’entrada conté la informació dels punts de totes les trajectòries a anonimitzar. Cada punt representa una entrada o fila en el fitxer, i conté la seva geo-localització (latitud i longitud), una marca temporal i l’identificador del usuari que va registrar la coordenada.
 
 A partir d’aquesta informació, l’algoritme determina les trajectòries de cada usuari, les anonimitza i genera un nou dataset amb els el punts de les noves trajectories anonimitzades. El dataset anonimitzat s’exporta com un fitxer .CSV conservant el mateix format que el fitxer original.
