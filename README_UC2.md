@@ -91,7 +91,13 @@ La naturalesa de les dades es de base temps, ja que es produixen i envien les da
 
 ![enter image description here](https://github.com/gorkaunzueta/FEMIOTUC2/blob/main/FEMIOTGen.png)
 
+El processat de les dades es centra al voltant de tres serveis: (1) Servei de suport a la conducció, (2) servei de manteniment i (3) servei de seguretat i protecció.
 
+### 3.1 Servei de suport a la conducció
+
+### 3.2 Servei de manteniment
+
+### 3.3 Servei de seguretat i protecció
 
 ## 4. Aspectes de seguretat
 
