@@ -89,7 +89,7 @@ La API d'aquest software te accés directe a la base de dades de InfluxDB mencio
 
 La naturalesa de les dades es de base temps, ja que es produixen i envien les dades del vehicle amb una certa periodicitat. Per això cada cop que es detecta que la base de dades ha sigut actualitzada, es necessari iterar per cada grup de dades que comparteixen timestamp i processar cada un d'aquests paquets. El següent diagrama mostra l'operació general de l'algorisme.
 
-![enter image description here](https://photos.app.goo.gl/zkuy7K17whAtMpZK9)
+![enter image description here](https://github.com/gorkaunzueta/FEMIOTUC2/blob/main/FEMIOTGen.png)
 
 
 
