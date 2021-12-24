@@ -103,10 +103,17 @@ L’acceleració en el eix longitudinal del vehicle permet detectar l’estat di
 
 Per altre banda, utilitzant les dades d’acceleració i camp magnètic en els tres eixos del vehicle es possible obtenir els tres angles d’Euler. A partir del angle al voltant de l’eix transversal, el algorisme calcula el pendent del terreny per poder identificar les condicions del terreny per a la ruta que està realitzant el vehicle.
 
-
 ### 3.2 Servei de manteniment
 
+El servei de manteniment busca fer una monitorització més precisa de l’ús i desgast del vehicle, enfocat a proporcionar aquestes dades a terceres empreses d’assegurances i tallers per permetre que facin ofertes més detallades i personalitzades per a l’usuari gràcies a la caracterització del perfil de conducció.
 
+Per a aquest servei són necessàries les dades de posició, acceleració i bateria o gasolina, en funció de si el vehicle és elèctric o de combustió corresponentment. Com a resultat, el processat retorna paràmetres de recorregut, velocitat i estat de la bateria/motor.
+
+Utilitzant les dades de posició de latitud i longitud de l’instant a processar juntament amb la latitud i longitud de l’instant anterior és possible computar la distancia recorreguda per el vehicle. Aquesta variable serà necessària per altres càlculs d’aquest servei a més de per permetre monitoritzar els kilòmetres recorreguts pel vehicle, proporcionant una dada molt rellevant dins d’aquest servei.
+
+Havent calculat el recorregut és senzill calcular la velocitat mitjana d’aquest trajecte utilitzant els timestamps dels dos instants. Amb la dada de velocitat mitjana del trajecte, permet generar histogrames de velocitat per identificar el règim d’ús del vehicle. El mateix tipus d’histogrames s’obtenen amb les dades d’acceleració i de pendent, permetent obtenir una millor descripció del perfil de conducció rellevant per al manteniment del vehicle.
+
+En el cas de que el vehicle es tracti d’una motocicleta elèctrica, el dispositiu proporcionarà dades del percentatge de bateria del vehicle. Amb aquestes dades, l’algorisme podrà analitzar els cicles de càrrega i descàrrega de la bateria per proporcionar un indicador de l’estat de la bateria. Si es tracta d’un vehicle de combustió, es proporcionarà una dada de nivell del dipòsit de gasolina. Amb aquesta dada es pot monitoritzar l’ús de gasolina del vehicle per identificar l’estrès d’operació del motor i poder fer una millor predicció de la fatiga d’aquest.
 
 ### 3.3 Servei de seguretat i protecció
 
