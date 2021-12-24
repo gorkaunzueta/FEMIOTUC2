@@ -10,7 +10,7 @@ D'aquesta manera, la tasca 6.4 ha consistit en el desenvolupament  del  mòdul s
 
 ## 2. Configuració
 
-En aquest apartat es detallarà el procediment per configurar i executar els algorismes desenvolupats en aquesta tasca. Per permetre una millor repetibilitat i escalabilitat, a més de fer el sistema compatible i homogeni dins del projecte 2 de l'agrupació FEM-IoT, l'arquitectura del software està desenvolupada sobre Docker.
+En aquest apartat es detallarà el procediment per configurar i executar els algorismes desenvolupats en aquesta tasca per poder realitzar una demo. Per permetre una millor repetibilitat i escalabilitat, a més de fer el sistema compatible i homogeni dins del projecte 2 de l'agrupació FEM-IoT, l'arquitectura del software està desenvolupada sobre Docker.
 
 ### 2.1 Requeriments
 
@@ -95,6 +95,13 @@ El processat de les dades es centra al voltant de tres serveis: (3.1) Servei de 
 
 ### 3.1 Servei de suport a la conducció
 
+Aquest servei té com a objectiu fer un anàlisis del perfil de conducció del vehicle per a poder aportar una informació més detallada a algoritmes d’optimització de rutes. D’aquesta manera permet fer una gestió de la operació de una flota de vehicles més eficient i detallada corresponent al vehicle i usuari que pertoqui.
+
+Per a aquest processat, el algorisme requereix de les dades de posició, d’acceleració i de camp magnètic i a més, en cas de ser disponibles per al vehicle corresponent, utilitzarà les dades de bateria o nivell del dipòsit. Amb aquestes dades, el algorisme calcularà dos paràmetres: Acc/fren i desnivell.
+
+L’acceleració en el eix longitudinal del vehicle permet detectar l’estat dinàmic d’aquest. Utilitzant les dades obtingudes del vehicle durant una etapa de calibratge, és possible identificar els diferents ombralls que diferencien si el vehicle es troba en acceleració, en acceleració constant o en frenada. Aquest estat s’emmagatzema en el paràmetre Acc/fren i permet identificar el nombre de frenades i arrencades per a un tram concret en conjunt amb la posició. Així, es pot parametritzar l’estrès que pot comportar una certa ruta per al vehicle.
+
+Per altre banda, utilitzant les dades d’acceleració i camp magnètic en els tres eixos del vehicle es possible obtenir els tres angles d’Euler. A partir del angle al voltant de l’eix transversal, el algorisme calcula el pendent del terreny per poder identificar les condicions del terreny per a la ruta que està realitzant el vehicle.
 
 
 ### 3.2 Servei de manteniment
