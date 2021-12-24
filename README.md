@@ -117,7 +117,17 @@ En el cas de que el vehicle es tracti d’una motocicleta elèctrica, el disposi
 
 ### 3.3 Servei de seguretat i protecció
 
+Finalment, el servei de seguretat i protecció aprofita que es tenen aquesta gran quantitat de dades referents al vehicle per identificar possibles robatoris i accidents, permetent una ràpida resposta de les autoritats pertinents quan sigui necessari enviant un avís en un interval de segons des de que succeeix l’esdeveniment.
 
+El servei requereix de les dades d’acceleració i de camp magnètic per a identificar aquests possibles accidents i robatoris, de manera que genera diferents indicadors per a mostrar-ho a l’usuari.
+
+L’algorisme inicia utilitzant les dades d’acceleració per detectar l’estat del vehicle. Havent realitzat una etapa de calibratge permet detectar la vibració de si el motor es troba engegat i a més si es troba en moviment. Així es genera un indicador per identificar en quin dels quatre estat es troba el vehicle: motor on en repòs, motor on en moviment, motor off en repòs i motor off en moviment.
+
+Havent deduït l’estat del vehicle, en el cas de que es trobi en motor off en moviment, l’algorisme fa un anàlisis de l’ús anterior per detectar si esta succeint un robatori i emmagatzema el resultat en un indicador.
+
+Per la detecció d’accidents, el servei segueix dues línies d’anàlisis paral·leles per a augmentar la precisió. Per una banda, utilitza les acceleracions i camp magnètic per a computar els angles d’Euler com s’ha mencionat anteriorment. Seguidament, compara aquests angles amb diversos ombralls que permetin identificar un accident. En el cas que això es compleixi, l’algorisme comprova els últims 10 segons del vehicle per detectar si ha succeït algun pic d’acceleració per determinar que hi ha un accident i informar a les autoritats pertinents.
+
+En paral·lel, el servei calcula la variació d’acceleració respecte l’instant anterior. En el cas de que aquests paràmetres superin uns ombralls determinats per l’etapa de calibratge, el servei compara les dades obtingudes amb un model de ML de detecció de novetat generat específicament per al vehicle. D’aquesta manera permet identificar si ha ocorregut un esdeveniment fora dels límits de normalitat d’ús del vehicle i genera una alerta corresponent.
 
 ## 4. Aspectes de seguretat
 
