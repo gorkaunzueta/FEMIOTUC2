@@ -1,3 +1,0 @@
-DATA_INSERT.m (inserció de dades)
-OFFLINE_def.m ( entrenament i validació del model)
-Online_Novelty.m (funció online de predicció del model)
