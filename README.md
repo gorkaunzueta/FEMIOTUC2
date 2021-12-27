@@ -25,7 +25,7 @@ version: "3.7"
 
 services:
     app:
-        image: uc2femiot
+        image: rosasc/mcia-femiot-p2-6-4
         container_name: app
         ports:
             - 8080:8080
